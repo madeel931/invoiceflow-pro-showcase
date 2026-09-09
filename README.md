@@ -1,166 +1,247 @@
 <div align="center">
 
-  <img src="assets/app_icon.png" width="120" height="120" alt="InvoiceFlow Pro Logo" style="border-radius: 24px;" />
+  <img src="assets/app_icon.png" width="96" height="96" alt="InvoiceFlow Pro Logo" style="border-radius: 20px;" />
 
   # InvoiceFlow Pro
-  
-  **A production-grade, offline-first mobile invoicing, billing, and client accounting application built with Flutter & Dart.**
 
-  [![Flutter](https://img.shields.io/badge/Flutter-3.29%2B-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-  [![Dart](https://img.shields.io/badge/Dart-3.5%2B-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
-  [![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-2563EB?style=for-the-badge)](https://blog.cleancoder.com)
-  [![Database](https://img.shields.io/badge/Database-Isar%20NoSQL-50C878?style=for-the-badge)](https://isar.dev)
-  [![Tests](https://img.shields.io/badge/Tests-508%20Passed%20(100%25)-brightgreen?style=for-the-badge)](https://github.com/madeel931)
-  [![Platforms](https://img.shields.io/badge/Platforms-Android%20%7C%20iOS-4E54C8?style=for-the-badge)]()
-  [![License](https://img.shields.io/badge/License-Commercial%20White--Label-FF8C00?style=for-the-badge)]()
+  **Offline-first Flutter invoicing application built with Clean Architecture, Cubit state management, Isar persistence, PDF generation, RTL localization, financial analytics, and backup workflows.**
 
-  <p align="center">
-    Built for freelancers, contractors, tradespeople, and small business agencies who demand instant, reliable invoicing with complete data privacy and zero mandatory cloud subscriptions.
-  </p>
+  [![Flutter](https://img.shields.io/badge/Flutter-3.29%2B-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
+  [![Dart](https://img.shields.io/badge/Dart-3.5%2B-0175C2?style=flat-square&logo=dart&logoColor=white)](https://dart.dev)
+  [![State Management](https://img.shields.io/badge/BLoC%20%2F%20Cubit-8.1-blueviolet?style=flat-square)](https://bloclibrary.dev)
+  [![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-2563EB?style=flat-square)](docs/ARCHITECTURE.md)
+  [![Database](https://img.shields.io/badge/Database-Isar%20NoSQL-50C878?style=flat-square)](https://isar.dev)
+  [![PDF Engine](https://img.shields.io/badge/PDF-Vector%20Generation-red?style=flat-square)](docs/TECHNICAL_HIGHLIGHTS.md)
+  [![RTL Support](https://img.shields.io/badge/RTL-Arabic%20%7C%20Urdu-teal?style=flat-square)](docs/TECHNICAL_HIGHLIGHTS.md)
+  [![Testing](https://img.shields.io/badge/Testing-508%20Tests%20Passed-brightgreen?style=flat-square)](docs/TESTING.md)
 
 </div>
 
 ---
 
-## 📱 Visual Showcase
+InvoiceFlow Pro is a commercial invoicing application designed for independent service businesses and contractors. This public repository serves as a **technical showcase and engineering case study**; the complete commercial source code is intentionally not included.
+
+> **Technical Objective:** Designed to demonstrate production-oriented Flutter architecture, offline data management, financial workflows, document generation, and localization.
+
+---
+
+## 📱 Application Overview
 
 <table>
   <tr>
     <td align="center" width="25%">
-      <img src="screenshots/01_pdf_invoice_export.png" alt="PDF Invoice with QR Code" width="100%" />
-      <br /><strong>Professional PDF & QR Pay</strong>
+      <img src="screenshots/01_dashboard_overview.png" alt="Executive Dashboard" width="100%" />
+      <br /><strong>Dashboard</strong>
+      <br /><sub>Financial overview, status counts, and KPIs</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/02_create_invoice_flow.png" alt="Fast Invoice Creation" width="100%" />
-      <br /><strong>10-Second Invoice Creation</strong>
+      <img src="screenshots/02_create_invoice_flow.png" alt="Invoice Creation" width="100%" />
+      <br /><strong>Invoice Creation</strong>
+      <br /><sub>Structured customer, item, tax, and discount flow</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/03_dashboard_overview.png" alt="Business Dashboard" width="100%" />
-      <br /><strong>Executive KPI Dashboard</strong>
+      <img src="screenshots/03_pdf_invoice_export.png" alt="Vector PDF Invoice" width="100%" />
+      <br /><strong>PDF Generation</strong>
+      <br /><sub>Vector document with QR code and share spooler</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/04_customers_management.png" alt="Customer CRM" width="100%" />
-      <br /><strong>Client CRM & Balances</strong>
+      <img src="screenshots/04_analytics_financial_trends.png" alt="Financial Analytics" width="100%" />
+      <br /><strong>Financial Trends</strong>
+      <br /><sub>Interactive revenue curves and cash-flow reporting</sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="25%">
-      <img src="screenshots/05_analytics_financial_trends.png" alt="Financial Analytics" width="100%" />
-      <br /><strong>Revenue Trends & Cash Flow</strong>
+      <img src="screenshots/05_customers_management.png" alt="Customer CRM" width="100%" />
+      <br /><strong>Customer CRM</strong>
+      <br /><sub>Client directory with real-time balance tracking</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/06_backup_google_drive.png" alt="Google Drive Sync" width="100%" />
-      <br /><strong>Google Drive Cloud Sync</strong>
+      <img src="screenshots/06_products_and_services.png" alt="Catalog Items" width="100%" />
+      <br /><strong>Items & Services</strong>
+      <br /><sub>Rate card catalog with pre-configured tax rates</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/07_business_branding_profile.png" alt="Business Branding" width="100%" />
-      <br /><strong>Custom Logo & Branding</strong>
+      <img src="screenshots/07_invoices_filtering.png" alt="Invoice Filtering" width="100%" />
+      <br /><strong>Status Filtering</strong>
+      <br /><sub>Compound status and date range filtering</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/08_dark_mode_dashboard.png" alt="AMOLED Dark Mode" width="100%" />
-      <br /><strong>AMOLED Dark Theme</strong>
+      <img src="screenshots/08_backup_google_drive.png" alt="Google Drive Backup" width="100%" />
+      <br /><strong>Cloud Backup</strong>
+      <br /><sub>Automated Google Drive AppData sync</sub>
     </td>
   </tr>
 </table>
 
+<details>
+<summary><strong>View Additional Interface Screens (Dark Mode, Business Profile, Activity Trail)</strong></summary>
+<br />
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <img src="screenshots/09_business_branding_profile.png" alt="Business Profile" width="100%" />
+      <br /><strong>Business Profile</strong>
+      <br /><sub>Logo, Tax ID, address, and base currency</sub>
+    </td>
+    <td align="center" width="25%">
+      <img src="screenshots/10_dark_mode_dashboard.png" alt="Dark Mode" width="100%" />
+      <br /><strong>Dark Mode</strong>
+      <br /><sub>AMOLED theme for low-light environments</sub>
+    </td>
+    <td align="center" width="25%">
+      <img src="screenshots/11_activity_audit_trail.png" alt="Activity Audit Trail" width="100%" />
+      <br /><strong>Audit Trail</strong>
+      <br /><sub>Chronological log of transactions and changes</sub>
+    </td>
+    <td align="center" width="25%">
+      <img src="screenshots/12_analytics_invoice_breakdown.png" alt="Analytics Breakdown" width="100%" />
+      <br /><strong>Status Breakdown</strong>
+      <br /><sub>Donut charts and volume distribution</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="screenshots/13_backup_local_storage.png" alt="Local Storage Backup" width="100%" />
+      <br /><strong>Local Backup</strong>
+      <br /><sub>Encrypted snapshot export and import</sub>
+    </td>
+    <td align="center" width="25%">
+      <img src="screenshots/14_backup_cloud_status.png" alt="Backup Status" width="100%" />
+      <br /><strong>Backup Status</strong>
+      <br /><sub>Storage summaries and device sync health</sub>
+    </td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+
+</details>
+
 ---
 
-## 🌟 Executive Overview
+## 🏗️ Architecture & System Design
 
-**InvoiceFlow Pro** is an enterprise-grade, offline-first mobile invoice management suite crafted by **ADii Labs**. 
+The application implements a **feature-oriented Clean Architecture** enforcing unidirectional data flow and strict layer boundaries.
 
-Unlike SaaS alternatives that lock users behind steep monthly subscriptions and slow internet round-trips, InvoiceFlow Pro delivers:
-* **True Local-First Privacy:** All invoices, customer records, and product catalogs are stored locally on the user's device via an ultra-fast **Isar NoSQL** database engine.
-* **Instant Native PDF Generation:** Clean vector PDF invoices generated on-device in milliseconds, complete with dynamic QR codes for direct client payment.
-* **Zero Cloud Hosting Costs:** No external backend required for core operations. Optional **Google Drive cloud synchronization** gives users private, automated backups without third-party server exposure.
+```mermaid
+graph TD
+    subgraph Presentation Layer
+        UI[Flutter Widgets / Screens] -->|User Actions| Cubit[Feature Cubits]
+        Cubit -->|Immutable States| UI
+    end
 
----
+    subgraph Domain Layer - Pure Dart
+        Cubit -->|Executes| UC[Use Cases]
+        UC -->|Coordinates| REPO_INTERFACE[Repository Interfaces]
+        UC -->|Operates on| ENTITIES[Domain Entities]
+    end
 
-## 🚀 Key Feature Highlights
-
-### 📄 1. High-Performance PDF Engine & Direct Sharing
-* Instant on-device PDF generation with sharp vector typography and custom business logos.
-* Built-in **Scan-to-Pay QR Code** (supports custom payment URLs, IBANs, or UPI links).
-* Pre-configured single-tap sharing via **WhatsApp**, **SMS**, **Email**, and native print spoolers.
-* Dedicated **Customer Account Statement PDF** export showing full debit/credit transaction history.
-
-### 🔒 2. Dual-Layer Backup & Security
-* **Automated Daily Google Drive Sync:** Silently creates rolling cloud snapshots strictly inside the user's private Google Drive app data storage.
-* **Cryptographic SHA-256 Integrity Verification:** Every backup file is hashed to prevent corruption during restore.
-* **Local Offline Backups:** Manual export/import of unencrypted or encrypted local snapshots to external storage or device transfer.
-
-### 📊 3. Financial Analytics & Real-Time KPIs
-* Executive dashboard tracking **Total Revenue**, **Outstanding Balances**, and **Invoice Status Counts**.
-* Interactive **Revenue Trend Line Charts** and **Status Breakdown Donut Charts** powered by `fl_chart`.
-* Real-time chronologically sorted **Activity Audit Log** capturing every business transaction.
-
-### 🌐 4. Multilingual RTL & Global Multi-Currency
-* Native support for **English (LTR)**, **Arabic (العربية - RTL)**, and **Urdu (اردو - RTL)**.
-* Proper bidirectional text shaping with `arabic_reshaper` and `bidi`.
-* Comprehensive currency picker supporting 150+ global currencies (USD, EUR, GBP, SAR, AED, PKR, INR, etc.).
-
-### 👥 5. Integrated Customer CRM & Rate Card Catalog
-* Customer directory with instant balance calculations and quick call/SMS buttons.
-* Rate card catalog for recurring services and physical parts with automatic tax rate calculation.
-
-### 💎 6. Freemium & Monetization Ready
-* Pre-wired with **RevenueCat In-App Purchases** (`purchases_flutter`).
-* Toggle between 100% free offline mode or paid subscription tiers via a single config flag (`ENABLE_IAP=true`).
-
----
-
-## 🏗️ Technical Architecture & Code Quality
-
-InvoiceFlow Pro is engineered according to **Domain-Driven Clean Architecture** and SOLID principles:
-
-```text
-lib/
-├── config/              # Centralized theme, branding & app constants
-├── core/                # Reusable UI primitives, PDF engine & device services
-└── features/
-    ├── analytics/       # Cash flow charts and financial trend reporting
-    ├── backup/          # Google Drive sync & local file snapshot engine
-    ├── customers/       # CRM directory & account statement generator
-    ├── dashboard/       # Executive KPI counters & quick action shortcuts
-    ├── invoices/        # Core invoice builder, PDF renderer & status manager
-    ├── items/           # Products & services catalog
-    ├── onboarding/      # First-run setup & commercial demo seeder
-    └── settings/        # Currency, tax rates, theme mode & profile
+    subgraph Data Layer
+        REPO_INTERFACE -.->|Implemented by| REPO_IMPL[Repository Implementations]
+        REPO_IMPL -->|CRUD / Queries| ISAR[Isar NoSQL Local DB]
+        REPO_IMPL -->|OAuth AppData Sync| DRIVE[Google Drive API]
+        REPO_IMPL -->|Serializes / Deserializes| MAPPERS[Data Models & Mappers]
+    end
 ```
 
-### Engineering Rigor:
-* **State Management:** `flutter_bloc` (BLoC / Cubit) for predictable, reactive UI flow.
-* **Dependency Injection:** `get_it` service locator.
-* **Automated Test Coverage:** **508 automated unit and widget tests** validating calculation immutability, date-range filtering, and error fallbacks.
-* **Analyzer Health:** **0 lint errors, 0 warnings** with strict `flutter_lints`.
+### Layer Responsibilities:
+* **Presentation Layer:** State management handled via `flutter_bloc` (Cubit). Widgets subscribe to strongly typed states and dispatch user intents. Zero business or calculation logic resides in widgets.
+* **Domain Layer:** Pure Dart module containing business entities, value objects, and granular use cases (`SaveInvoiceUseCase`, `CalculateTotalsUseCase`, `RestoreBackupUseCase`). Free from Flutter framework or database packages.
+* **Data Layer:** Concrete repository implementations coordinating the embedded Isar database, file storage, and external Google Drive AppData synchronization.
 
 ---
 
-## 📦 Commercial Acquisition & Licensing
+## ⚙️ Key Engineering Highlights
 
-This repository serves as a **public product showcase**. The complete, production-ready source code is available for commercial purchase, white-label deployment, and client licensing:
+### 1. Deterministic Financial Computation
+All calculations (line subtotals, item-level compounding taxes, percentage discounts, and payment balances) are evaluated under strict fixed-point arithmetic rules with rounding enforced at persistence boundaries. Overpayment guards protect against negative balances.
 
-* **Commercial Marketplaces:** Available on **[Codester](https://www.codester.com)** and **CodeCanyon**.
-* **What Buyers Receive:**
-  * Complete, clean Flutter source code for **Android & iOS**.
-  * Complete offline HTML & Markdown documentation.
-  * 1-command white-label rebranding script.
-  * Pre-configured **Demo Mode** (`--dart-define=DEMO_MODE=true`) with realistic business data.
-  * Lifetime codebase updates.
+### 2. Embedded Offline-First Storage (Isar)
+Utilizes an embedded NoSQL database compiled to native C++ binaries. Complex invoice queries, status filters, and customer balance recalculations execute with sub-millisecond query latency. Live query streams (`watchLazy`) automatically refresh views on write.
+
+### 3. Native Vector PDF Compilation
+Invoices and customer statements are generated directly on-device as vector PDFs using the `pdf` package. Dynamic layout pagination dynamically measures table rows to prevent orphaned elements and overlapping headers. Includes embedded QR code metadata for payment links or invoice verification.
+
+### 4. Multilingual & Bidirectional Support (LTR / RTL)
+Full support for English (`en`, LTR), Arabic (`ar`, RTL), and Urdu (`ur`, RTL). Custom script shaping (`arabic_reshaper`) and Unicode bidirectional analysis (`bidi`) ensure cursive Arabic and Urdu glyphs join correctly inside custom PDF canvases and UI components.
+
+### 5. Dual-Layer Backup Engine
+Combines local database snapshot export/import with automated Google Drive AppData synchronization. Every backup archive embeds a cryptographic SHA-256 digest verified prior to database restoration to prevent corrupted states from entering active storage.
 
 ---
 
-## 📬 Contact & Custom Development
+## 🧩 Technical Challenges & Solutions
 
-Looking for white-label rebranding, custom enterprise integrations, or custom Flutter development?
+| Challenge | Problem | Engineering Approach | Verified Result |
+|---|---|---|---|
+| **Financial Precision** | Floating-point calculation drift in compound tax/discount math. | Evaluated taxes per item line before summing; rounded to 2 decimal places at domain boundaries. | Elimination of fractional cent discrepancies across multi-item statements. |
+| **RTL PDF Typography** | Standard mobile PDF engines render Arabic/Urdu characters disconnected and in reverse order. | Passed strings through contextual character reshaping (`arabic_reshaper`) and bidirectional analysis (`bidi`) before canvas drawing. | Typographically correct, connected Arabic and Urdu text rendering on vector PDFs. |
+| **Silent Restore Corruption** | Incomplete or interrupted backup file transfers could corrupt local database collections. | Calculated a SHA-256 checksum during creation and verified the digest against the archive prior to restore. | Guaranteed atomic restoration; corrupted files are rejected without database writes. |
+| **Android Alarm Constraints** | Android 13+ restricts `SCHEDULE_EXACT_ALARM`, risking crashes if permissions are withheld. | Wrapped scheduling in an error handler catching `exact_alarms_not_permitted` and falling back to inexact scheduling. | Zero crash reports on newer Android versions; graceful notification delivery fallback. |
+| **Authentication UI Flicker** | Asynchronous Google Sign-In checks during initial page load caused transient "Disconnected" flashes. | Persisted the verified identity in local secure preferences and hydrated the UI state synchronously on launch. | Immediate, steady UI presentation with background token refresh. |
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer / Area | Technology | Purpose |
+|---|---|---|
+| **Framework** | Flutter 3.29+ | Multi-platform UI framework |
+| **Language** | Dart 3.5+ | Core object-oriented programming language |
+| **State Management** | flutter_bloc (Cubit) | Unidirectional reactive state management |
+| **Architecture** | Clean Architecture | Separation of presentation, domain, and data |
+| **Dependency Injection** | GetIt | Centralized compile-time service locator |
+| **Database** | Isar NoSQL | Embedded local database with ACID compliance |
+| **Document Processing** | pdf & printing | Native vector PDF rendering and print spooling |
+| **Internationalization** | arabic_reshaper & bidi | RTL glyph shaping and bidirectional text flow |
+| **Data Visualization** | fl_chart | Interactive financial trend and donut charts |
+| **Cloud Synchronization** | googleapis & google_sign_in | Private Google Drive AppData backup sync |
+| **Notifications** | flutter_local_notifications | Local payment due date scheduling |
+| **Routing** | GoRouter | Declarative, type-safe navigation stack |
+| **Testing** | flutter_test & bloc_test | Comprehensive unit, widget, and state test suites |
+
+---
+
+## 🧪 Automated Testing
+
+The codebase includes an extensive suite of automated tests verifying core business logic and UI behavior:
+
+* **Suite Composition:** 93 test files covering domain calculations, repository mappings, state transition sequences, and layout mirroring.
+* **Verified Execution:** 508 passing unit and widget tests (0 failures, 0 skipped).
+* **Static Analysis:** Clean pass under `flutter analyze` with 0 warnings, 0 errors, and strict `flutter_lints` adherence.
+
+For detailed testing architecture and execution instructions, see [docs/TESTING.md](docs/TESTING.md).
+
+---
+
+## 📚 Technical Documentation
+
+For in-depth architectural and implementation details, explore the documentation guides:
+
+* [Technical Case Study](docs/CASE_STUDY.md) — Comprehensive design document detailing problem scope, data models, and decisions.
+* [Architecture Guide](docs/ARCHITECTURE.md) — Deep dive into layer boundaries, dependency injection, and data flow diagrams.
+* [Technical Highlights](docs/TECHNICAL_HIGHLIGHTS.md) — Detailed breakdown of financial math, PDF compilation, and RTL shaping.
+* [Testing & Quality Assurance](docs/TESTING.md) — Overview of the test suite structure, Cubit tests, and regression harnesses.
+
+---
+
+## 💼 Commercial Availability
+
+InvoiceFlow Pro is a commercial software product developed by **ADii Labs**.
+
+The complete commercial source code is intentionally not included in this public showcase repository. 
+
+For commercial licensing, white-label deployment, or custom Flutter software development inquiries:
 
 * **Developer:** Muhammad Adeel
-* **Company:** ADii Labs
 * **GitHub:** [@madeel931](https://github.com/madeel931)
 * **Email:** [engineer.adeel.pk@gmail.com](mailto:engineer.adeel.pk@gmail.com)
+* **LinkedIn:** [Muhammad Adeel](https://www.linkedin.com) *(See [LinkedIn Project Description](docs/LINKEDIN_PROJECT_DESCRIPTION.md))*
 
 ---
 
 <div align="center">
-  <sub>Designed & Developed with precision by <strong>ADii Labs</strong>.</sub>
+  <sub>Engineered by <strong>Muhammad Adeel</strong> &bull; ADii Labs</sub>
 </div>
