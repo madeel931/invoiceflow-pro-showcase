@@ -155,8 +155,8 @@ graph TD
 
 ## ⚙️ Key Engineering Highlights
 
-### 1. Deterministic Financial Computation
-All calculations (line subtotals, item-level compounding taxes, percentage discounts, and payment balances) are evaluated under strict fixed-point arithmetic rules with rounding enforced at persistence boundaries. Overpayment guards protect against negative balances.
+### 1. Controlled Rounding & Monetary Calculations
+Controlled rounding boundaries: monetary calculations (line subtotals, item-level compounding taxes, percentage discounts, and payment balances) are rounded consistently at defined domain/persistence boundaries to reduce cumulative rounding discrepancies. Overpayment guards protect against negative balances.
 
 ### 2. Embedded Offline-First Storage (Isar)
 Utilizes an embedded database compiled to native C++ binaries. Complex invoice queries, status filters, and customer balance recalculations execute via indexed queries. Live query streams (`watchLazy`) automatically refresh views on write.
@@ -168,7 +168,7 @@ Invoices and customer statements are generated directly on-device as vector PDFs
 Full support for English (`en`, LTR), Arabic (`ar`, RTL), and Urdu (`ur`, RTL). Custom script shaping (`arabic_reshaper`) and Unicode bidirectional analysis (`bidi`) ensure cursive Arabic and Urdu glyphs join correctly inside custom PDF canvases and UI components.
 
 ### 5. Dual-Layer Backup Engine
-Combines local database snapshot export/import with automated Google Drive AppData synchronization. Every backup archive embeds a cryptographic SHA-256 digest verified prior to database restoration to prevent corrupted states from entering active storage.
+Combines local database snapshot export/import with automated Google Drive AppData synchronization. Backup integrity is validated with SHA-256 before restoration, reducing the risk of importing corrupted or altered archives.
 
 ---
 
@@ -176,7 +176,7 @@ Combines local database snapshot export/import with automated Google Drive AppDa
 
 | Challenge | Problem | Engineering Approach | Verified Result |
 |---|---|---|---|
-| **Financial Precision** | Floating-point calculation drift in compound tax/discount math. | Evaluated taxes per item line before summing; rounded to 2 decimal places at domain boundaries. | Consistent rounding behavior across multi-item statements. |
+| **Monetary Calculations** | Cumulative calculation drift in compound tax/discount math. | Evaluated taxes per item line before summing; rounded consistently at defined domain/persistence boundaries. | Consistent rounding behavior across multi-item statements. |
 | **RTL PDF Typography** | Standard mobile PDF engines render Arabic/Urdu characters disconnected and in reverse order. | Passed strings through contextual character reshaping (`arabic_reshaper`) and bidirectional analysis (`bidi`) before canvas drawing. | Typographically correct, connected Arabic and Urdu text rendering on vector PDFs. |
 | **Silent Restore Corruption** | Incomplete or interrupted backup file transfers could corrupt local database collections. | Calculated a SHA-256 checksum during creation and verified the digest against the archive prior to restore. | Corrupted or incomplete backup files fail validation before database writes are attempted. |
 | **Android Alarm Constraints** | Android 13+ restricts `SCHEDULE_EXACT_ALARM`, risking crashes if permissions are withheld. | Wrapped scheduling in an error handler catching `exact_alarms_not_permitted` and falling back to inexact scheduling. | Graceful notification delivery fallback without unhandled exceptions on newer Android versions. |
@@ -208,8 +208,8 @@ Combines local database snapshot export/import with automated Google Drive AppDa
 
 The codebase includes an extensive suite of automated tests verifying core business logic and UI behavior:
 
-* **Suite Composition:** 93 test files covering domain calculations, repository mappings, state transition sequences, and layout mirroring.
-* **Automated Coverage:** Comprehensive test suite covering core financial calculations, Cubit state emissions, and bidirectional UI rendering.
+* **Suite Composition:** 93 automated test files are included in the project, covering domain calculations, repository mappings, state transition sequences, and layout mirroring.
+* **Test Scope:** Unit, widget, and regression test suites validating domain calculations, Cubit state emissions, and bidirectional layout mirroring.
 * **Static Analysis:** Clean pass under `flutter analyze` with 0 warnings, 0 errors, and strict `flutter_lints` adherence.
 
 For detailed testing architecture and execution instructions, see [docs/TESTING.md](docs/TESTING.md).
@@ -238,7 +238,7 @@ For commercial licensing, white-label deployment, or custom Flutter software dev
 * **Developer:** Muhammad Adeel
 * **GitHub:** [@madeel931](https://github.com/madeel931)
 * **Email:** [engineer.adeel.pk@gmail.com](mailto:engineer.adeel.pk@gmail.com)
-* **LinkedIn:** [Muhammad Adeel](https://linkedin.com/in/muhammad-adeel-ab2a90144) *(See [LinkedIn Project Description](docs/LINKEDIN_PROJECT_DESCRIPTION.md))*
+* **LinkedIn:** [Muhammad Adeel](https://linkedin.com/in/muhammad-adeel-ab2a90144)
 
 ---
 

@@ -10,7 +10,7 @@ Client-side financial systems are vulnerable to subtle floating-point inaccuraci
 
 ### Implementation:
 * **Strict Calculation Order:** Taxes and discounts are evaluated on individual line items before summing, eliminating discrepancies between line-item inspection and invoice summary cards.
-* **Controlled Rounding Boundaries:** All monetary values maintain standard 2-decimal-place precision using fixed-point representation at persistence boundaries, preventing cumulative cent drift over extended multi-invoice statements.
+* **Controlled Rounding Boundaries:** Monetary calculations are rounded consistently at defined domain/persistence boundaries to reduce cumulative rounding discrepancies over extended multi-invoice statements.
 * **Overpayment Guards:** Business rules enforce non-negative balances and prevent recorded payments from exceeding remaining debt without explicit user confirmation.
 
 ---
