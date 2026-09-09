@@ -15,25 +15,25 @@ Client-side financial systems are vulnerable to subtle floating-point inaccuraci
 
 ---
 
-## 2. High-Performance Local-First Persistence (Isar NoSQL)
+## 2. High-Performance Local-First Persistence (Isar)
 
-Rather than using basic SQLite wrappers or key-value stores, InvoiceFlow Pro leverages **Isar**, an ultra-fast embedded NoSQL database compiled to native C++ binaries.
+Rather than using basic SQLite wrappers or key-value stores, InvoiceFlow Pro leverages **Isar**, an embedded database compiled to native C++ binaries.
 
 ### Key Advantages:
-* **Sub-Millisecond Query Times:** Filtering across thousands of historical invoices by status or date range completes in single-digit milliseconds.
+* **Indexed Local Queries:** Efficient filtering across historical invoices by status or date range.
 * **Reactive Database Streams:** Views subscribe directly to Isar queries (`watchLazy`), eliminating manual cache synchronization or state-stretching bugs between screens.
-* **ACID Transactions:** All invoice creations, item edits, and ledger updates execute inside atomic transactions, guaranteeing database integrity even during sudden app termination.
+* **Transactional Writes:** All invoice creations, item edits, and ledger updates execute inside transactions, safeguarding database integrity.
 
 ---
 
-## 3. On-Device Vector PDF Compilation with QR Metadata
+## 3. On-Device Vector PDF Compilation with QR Generation
 
 Generating professional PDF documents directly on a mobile device without relying on server-side rendering engines (e.g., Puppeteer, Chromium, or remote microservices) significantly reduces operational cost and respects user privacy.
 
 ### Pipeline:
 1. **Domain Model Extraction:** Raw invoice domain entities and business branding settings are passed to the document builder.
 2. **Dynamic Multi-Page Flow:** The layout engine dynamically measures item rows and automatically computes page breaks to prevent orphans and overlapping headers/footers.
-3. **Embedded QR Code:** Vector-drawn QR code embeds structured payment payloads (custom payment URLs, IBANs, or localized transaction references) for instant camera scanning.
+3. **QR Code Integration:** Includes QR code generation for payment or invoice-related information.
 4. **Platform Print/Share Spooling:** Integrates directly with native mobile share sheets (`share_plus`) and system print dialogs (`printing`).
 
 ---
@@ -44,7 +44,7 @@ Supporting both Left-to-Right (LTR) and Right-to-Left (RTL) scripts in mobile ap
 
 ### Engineering Solution:
 * **Contextual Glyphs & Reshaping:** Arabic and Urdu strings undergo glyph reshaping (`arabic_reshaper`) to join isolated characters into contextually correct cursive script forms.
-* **Unicode Bidirectional Algorithm:** A bidirectional analysis step (`bidi`) handles mixed-script strings (e.g., English product codes embedded inside Arabic item descriptions) to guarantee correct logical-to-visual character ordering.
+* **Unicode Bidirectional Algorithm:** A bidirectional analysis step (`bidi`) handles mixed-script strings (e.g., English product codes embedded inside Arabic item descriptions) ensuring correct logical-to-visual character ordering.
 * **Embedded Font Assets:** Explicit bundling of `NotoSansArabic` (Regular and Bold) ensures consistent typographic rendering across Android, iOS, and desktop preview runtimes.
 
 ---
@@ -61,7 +61,7 @@ Data durability is critical in an offline-first application where no remote serv
    * Users can generate standalone backup archives for local storage or device migration.
 3. **SHA-256 Checksum Verification:**
    * Every backup archive generates a cryptographic SHA-256 digest at creation.
-   * During restore operations, the engine recalculates the digest and validates it before touching live database tables, completely preventing corrupt or truncated files from corrupting the application state.
+   * During restore operations, the engine recalculates the digest and validates it before touching live database tables, preventing corrupt or truncated files from entering active database storage.
 
 ---
 

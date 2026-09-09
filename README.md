@@ -6,14 +6,14 @@
 
   **Offline-first Flutter invoicing application built with Clean Architecture, Cubit state management, Isar persistence, PDF generation, RTL localization, financial analytics, and backup workflows.**
 
-  [![Flutter](https://img.shields.io/badge/Flutter-3.29%2B-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
+  [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
   [![Dart](https://img.shields.io/badge/Dart-3.5%2B-0175C2?style=flat-square&logo=dart&logoColor=white)](https://dart.dev)
   [![State Management](https://img.shields.io/badge/BLoC%20%2F%20Cubit-8.1-blueviolet?style=flat-square)](https://bloclibrary.dev)
   [![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-2563EB?style=flat-square)](docs/ARCHITECTURE.md)
-  [![Database](https://img.shields.io/badge/Database-Isar%20NoSQL-50C878?style=flat-square)](https://isar.dev)
+  [![Database](https://img.shields.io/badge/Database-Isar-50C878?style=flat-square)](https://isar.dev)
   [![PDF Engine](https://img.shields.io/badge/PDF-Vector%20Generation-red?style=flat-square)](docs/TECHNICAL_HIGHLIGHTS.md)
   [![RTL Support](https://img.shields.io/badge/RTL-Arabic%20%7C%20Urdu-teal?style=flat-square)](docs/TECHNICAL_HIGHLIGHTS.md)
-  [![Testing](https://img.shields.io/badge/Testing-508%20Tests%20Passed-brightgreen?style=flat-square)](docs/TESTING.md)
+  [![Testing](https://img.shields.io/badge/Automated%20Testing-Unit%2C%20Widget%20%26%20Regression-brightgreen?style=flat-square)](docs/TESTING.md)
 
 </div>
 
@@ -140,7 +140,7 @@ graph TD
 
     subgraph Data Layer
         REPO_INTERFACE -.->|Implemented by| REPO_IMPL[Repository Implementations]
-        REPO_IMPL -->|CRUD / Queries| ISAR[Isar NoSQL Local DB]
+        REPO_IMPL -->|CRUD / Queries| ISAR[Isar Local DB]
         REPO_IMPL -->|OAuth AppData Sync| DRIVE[Google Drive API]
         REPO_IMPL -->|Serializes / Deserializes| MAPPERS[Data Models & Mappers]
     end
@@ -159,10 +159,10 @@ graph TD
 All calculations (line subtotals, item-level compounding taxes, percentage discounts, and payment balances) are evaluated under strict fixed-point arithmetic rules with rounding enforced at persistence boundaries. Overpayment guards protect against negative balances.
 
 ### 2. Embedded Offline-First Storage (Isar)
-Utilizes an embedded NoSQL database compiled to native C++ binaries. Complex invoice queries, status filters, and customer balance recalculations execute with sub-millisecond query latency. Live query streams (`watchLazy`) automatically refresh views on write.
+Utilizes an embedded database compiled to native C++ binaries. Complex invoice queries, status filters, and customer balance recalculations execute via indexed queries. Live query streams (`watchLazy`) automatically refresh views on write.
 
 ### 3. Native Vector PDF Compilation
-Invoices and customer statements are generated directly on-device as vector PDFs using the `pdf` package. Dynamic layout pagination dynamically measures table rows to prevent orphaned elements and overlapping headers. Includes embedded QR code metadata for payment links or invoice verification.
+Invoices and customer statements are generated directly on-device as vector PDFs using the `pdf` package. Dynamic layout pagination dynamically measures table rows to prevent orphaned elements and overlapping headers. Includes QR code generation for payment or invoice-related information.
 
 ### 4. Multilingual & Bidirectional Support (LTR / RTL)
 Full support for English (`en`, LTR), Arabic (`ar`, RTL), and Urdu (`ur`, RTL). Custom script shaping (`arabic_reshaper`) and Unicode bidirectional analysis (`bidi`) ensure cursive Arabic and Urdu glyphs join correctly inside custom PDF canvases and UI components.
@@ -176,10 +176,10 @@ Combines local database snapshot export/import with automated Google Drive AppDa
 
 | Challenge | Problem | Engineering Approach | Verified Result |
 |---|---|---|---|
-| **Financial Precision** | Floating-point calculation drift in compound tax/discount math. | Evaluated taxes per item line before summing; rounded to 2 decimal places at domain boundaries. | Elimination of fractional cent discrepancies across multi-item statements. |
+| **Financial Precision** | Floating-point calculation drift in compound tax/discount math. | Evaluated taxes per item line before summing; rounded to 2 decimal places at domain boundaries. | Consistent rounding behavior across multi-item statements. |
 | **RTL PDF Typography** | Standard mobile PDF engines render Arabic/Urdu characters disconnected and in reverse order. | Passed strings through contextual character reshaping (`arabic_reshaper`) and bidirectional analysis (`bidi`) before canvas drawing. | Typographically correct, connected Arabic and Urdu text rendering on vector PDFs. |
-| **Silent Restore Corruption** | Incomplete or interrupted backup file transfers could corrupt local database collections. | Calculated a SHA-256 checksum during creation and verified the digest against the archive prior to restore. | Guaranteed atomic restoration; corrupted files are rejected without database writes. |
-| **Android Alarm Constraints** | Android 13+ restricts `SCHEDULE_EXACT_ALARM`, risking crashes if permissions are withheld. | Wrapped scheduling in an error handler catching `exact_alarms_not_permitted` and falling back to inexact scheduling. | Zero crash reports on newer Android versions; graceful notification delivery fallback. |
+| **Silent Restore Corruption** | Incomplete or interrupted backup file transfers could corrupt local database collections. | Calculated a SHA-256 checksum during creation and verified the digest against the archive prior to restore. | Corrupted or incomplete backup files fail validation before database writes are attempted. |
+| **Android Alarm Constraints** | Android 13+ restricts `SCHEDULE_EXACT_ALARM`, risking crashes if permissions are withheld. | Wrapped scheduling in an error handler catching `exact_alarms_not_permitted` and falling back to inexact scheduling. | Graceful notification delivery fallback without unhandled exceptions on newer Android versions. |
 | **Authentication UI Flicker** | Asynchronous Google Sign-In checks during initial page load caused transient "Disconnected" flashes. | Persisted the verified identity in local secure preferences and hydrated the UI state synchronously on launch. | Immediate, steady UI presentation with background token refresh. |
 
 ---
@@ -188,12 +188,12 @@ Combines local database snapshot export/import with automated Google Drive AppDa
 
 | Layer / Area | Technology | Purpose |
 |---|---|---|
-| **Framework** | Flutter 3.29+ | Multi-platform UI framework |
+| **Framework** | Flutter 3.x | Multi-platform UI framework |
 | **Language** | Dart 3.5+ | Core object-oriented programming language |
 | **State Management** | flutter_bloc (Cubit) | Unidirectional reactive state management |
 | **Architecture** | Clean Architecture | Separation of presentation, domain, and data |
-| **Dependency Injection** | GetIt | Centralized compile-time service locator |
-| **Database** | Isar NoSQL | Embedded local database with ACID compliance |
+| **Dependency Injection** | GetIt | Dependency injection / service locator |
+| **Database** | Isar | Embedded local database with transactional writes |
 | **Document Processing** | pdf & printing | Native vector PDF rendering and print spooling |
 | **Internationalization** | arabic_reshaper & bidi | RTL glyph shaping and bidirectional text flow |
 | **Data Visualization** | fl_chart | Interactive financial trend and donut charts |
@@ -209,7 +209,7 @@ Combines local database snapshot export/import with automated Google Drive AppDa
 The codebase includes an extensive suite of automated tests verifying core business logic and UI behavior:
 
 * **Suite Composition:** 93 test files covering domain calculations, repository mappings, state transition sequences, and layout mirroring.
-* **Verified Execution:** 508 passing unit and widget tests (0 failures, 0 skipped).
+* **Automated Coverage:** Comprehensive test suite covering core financial calculations, Cubit state emissions, and bidirectional UI rendering.
 * **Static Analysis:** Clean pass under `flutter analyze` with 0 warnings, 0 errors, and strict `flutter_lints` adherence.
 
 For detailed testing architecture and execution instructions, see [docs/TESTING.md](docs/TESTING.md).
@@ -238,7 +238,7 @@ For commercial licensing, white-label deployment, or custom Flutter software dev
 * **Developer:** Muhammad Adeel
 * **GitHub:** [@madeel931](https://github.com/madeel931)
 * **Email:** [engineer.adeel.pk@gmail.com](mailto:engineer.adeel.pk@gmail.com)
-* **LinkedIn:** [Muhammad Adeel](https://www.linkedin.com) *(See [LinkedIn Project Description](docs/LINKEDIN_PROJECT_DESCRIPTION.md))*
+* **LinkedIn:** [Muhammad Adeel](https://linkedin.com/in/muhammad-adeel-ab2a90144) *(See [LinkedIn Project Description](docs/LINKEDIN_PROJECT_DESCRIPTION.md))*
 
 ---
 

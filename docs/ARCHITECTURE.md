@@ -162,7 +162,7 @@ Routing is centralized using **GoRouter**:
 Transforms domain entities into structured vector PDF documents using the `pdf` package. The service handles:
 * Table layout pagination.
 * Dynamic font loading for Arabic and Urdu glyphs (`NotoSansArabic`).
-* Embedded QR code generation using `qr_flutter` payload encoders.
+* QR code generation for payment or invoice-related information.
 
 ### 2. Notification Dispatcher (`LocalNotificationService`)
 Coordinates local notifications for payment due dates using `flutter_local_notifications`:
@@ -170,4 +170,4 @@ Coordinates local notifications for payment due dates using `flutter_local_notif
 * Gracefully degrades from `SCHEDULE_EXACT_ALARM` to inexact execution on restricted Android environments.
 
 ### 3. Cryptographic Verification Service
-Employs `crypto` to calculate SHA-256 digests over database archive streams to guarantee snapshot validity before destructive restore operations.
+Employs `crypto` to calculate SHA-256 digests over database archive streams to verify snapshot integrity before destructive restore operations.

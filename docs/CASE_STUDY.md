@@ -57,7 +57,7 @@ graph TD
 
 ## Data Model
 
-Persistence is managed using **Isar NoSQL**, an embedded ACID-compliant database engine compiled natively for mobile targets.
+Persistence is managed using **Isar**, an embedded database engine with transactional writes compiled natively for mobile targets.
 
 ### Core Collections:
 1. **InvoiceCollection (`Invoice`):**
@@ -95,7 +95,7 @@ The application adopts a **single source of truth** pattern centered on the loca
 
 1. **Direct Persistence:** All user interactions write immediately to the local Isar database.
 2. **Reactive Query Streams:** UI layers observe live database streams (`watchLazy`), ensuring views automatically reflect writes, deletes, or batch updates without manual cache invalidation.
-3. **Zero Sync Latency:** Because the local database is authoritative, search, sorting, and reporting operate with sub-millisecond execution times.
+3. **Zero Sync Latency:** Because the local database is authoritative, search, sorting, and reporting operate with fast, responsive local execution.
 
 ---
 
@@ -105,7 +105,7 @@ The document generation pipeline converts structured domain entities into printa
 
 * **Technology:** Built using `pdf` and `printing` packages.
 * **Layout Engine:** Multi-page layout adapter that measures content heights dynamically to ensure line items flow cleanly across page boundaries without overlapping footers.
-* **QR Metadata:** Invoices include an embedded QR code carrying invoice metadata (invoice identifier, issue date, grand total, and optional payment payload) enabling scanning by customers or accounting teams.
+* **QR Metadata:** Invoices include QR code generation for payment or invoice-related information (such as invoice identifier, issue date, grand total, or optional payment reference).
 * **Sharing Spooler:** Integrates with iOS `UIActivityViewController` and Android `Intent.ACTION_SEND` for single-tap transmission to WhatsApp, Mail, or localized system printers.
 
 ---
@@ -158,7 +158,7 @@ Testing was integrated into every development cycle to maintain stability across
 
 ## Lessons Learned
 
-1. **Domain Isolation Simplifies Testing:** Keeping domain models completely decoupled from Isar annotations or Flutter UI libraries allowed rapid test suite execution and guaranteed zero framework leakage into core business rules.
+1. **Domain Isolation Simplifies Testing:** Keeping domain models completely decoupled from Isar annotations or Flutter UI libraries allowed rapid test suite execution and prevented framework leakage into core business rules.
 2. **Offline-First Demands Strict Invariants:** Without a server to arbitrate transactions, client-side data validation must be comprehensive at the use case layer to prevent invalid states.
 3. **Typography in PDF requires explicit font assets:** System fonts available in Flutter are not automatically bundled into PDF generation canvases. Explicit bundling of OpenType/TrueType fonts is essential for cross-platform visual parity.
 
