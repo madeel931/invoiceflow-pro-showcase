@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/app_icon.png" width="96" height="96" alt="InvoiceFlow Pro Logo" style="border-radius: 20px;" />
+  <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/assets/app_icon.png" width="96" height="96" alt="InvoiceFlow Pro Logo" style="border-radius: 20px;" />
 
   # InvoiceFlow Pro
 
@@ -30,44 +30,44 @@ InvoiceFlow Pro is a commercial invoicing application designed for independent s
 <table>
   <tr>
     <td align="center" width="25%">
-      <img src="screenshots/01_dashboard_overview.png" alt="Executive Dashboard" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/01_dashboard_overview.png" alt="Executive Dashboard" width="100%" />
       <br /><strong>Dashboard</strong>
       <br /><sub>Financial overview, status counts, and KPIs</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/02_create_invoice_flow.png" alt="Invoice Creation" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/02_create_invoice_flow.png" alt="Invoice Creation" width="100%" />
       <br /><strong>Invoice Creation</strong>
       <br /><sub>Structured customer, item, tax, and discount flow</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/03_pdf_invoice_export.png" alt="Vector PDF Invoice" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/03_pdf_invoice_export.png" alt="Vector PDF Invoice" width="100%" />
       <br /><strong>PDF Generation</strong>
       <br /><sub>Vector document with QR code and share spooler</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/04_analytics_financial_trends.png" alt="Financial Analytics" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/04_analytics_financial_trends.png" alt="Financial Analytics" width="100%" />
       <br /><strong>Financial Trends</strong>
       <br /><sub>Interactive revenue curves and cash-flow reporting</sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="25%">
-      <img src="screenshots/05_customers_management.png" alt="Customer CRM" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/05_customers_management.png" alt="Customer CRM" width="100%" />
       <br /><strong>Customer CRM</strong>
       <br /><sub>Client directory with real-time balance tracking</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/06_products_and_services.png" alt="Catalog Items" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/06_products_and_services.png" alt="Catalog Items" width="100%" />
       <br /><strong>Items & Services</strong>
       <br /><sub>Rate card catalog with pre-configured tax rates</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/07_invoices_filtering.png" alt="Invoice Filtering" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/07_invoices_filtering.png" alt="Invoice Filtering" width="100%" />
       <br /><strong>Status Filtering</strong>
       <br /><sub>Compound status and date range filtering</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/08_backup_google_drive.png" alt="Google Drive Backup" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/08_backup_google_drive.png" alt="Google Drive Backup" width="100%" />
       <br /><strong>Cloud Backup</strong>
       <br /><sub>Automated Google Drive AppData sync</sub>
     </td>
@@ -81,34 +81,34 @@ InvoiceFlow Pro is a commercial invoicing application designed for independent s
 <table>
   <tr>
     <td align="center" width="25%">
-      <img src="screenshots/09_business_branding_profile.png" alt="Business Profile" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/09_business_branding_profile.png" alt="Business Profile" width="100%" />
       <br /><strong>Business Profile</strong>
       <br /><sub>Logo, Tax ID, address, and base currency</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/10_dark_mode_dashboard.png" alt="Dark Mode" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/10_dark_mode_dashboard.png" alt="Dark Mode" width="100%" />
       <br /><strong>Dark Mode</strong>
       <br /><sub>AMOLED theme for low-light environments</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/11_activity_audit_trail.png" alt="Activity Audit Trail" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/11_activity_audit_trail.png" alt="Activity Audit Trail" width="100%" />
       <br /><strong>Audit Trail</strong>
       <br /><sub>Chronological log of transactions and changes</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/12_analytics_invoice_breakdown.png" alt="Analytics Breakdown" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/12_analytics_invoice_breakdown.png" alt="Analytics Breakdown" width="100%" />
       <br /><strong>Status Breakdown</strong>
       <br /><sub>Donut charts and volume distribution</sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="25%">
-      <img src="screenshots/13_backup_local_storage.png" alt="Local Storage Backup" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/13_backup_local_storage.png" alt="Local Storage Backup" width="100%" />
       <br /><strong>Local Backup</strong>
       <br /><sub>Encrypted snapshot export and import</sub>
     </td>
     <td align="center" width="25%">
-      <img src="screenshots/14_backup_cloud_status.png" alt="Backup Status" width="100%" />
+      <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/14_backup_cloud_status.png" alt="Backup Status" width="100%" />
       <br /><strong>Backup Status</strong>
       <br /><sub>Storage summaries and device sync health</sub>
     </td>
