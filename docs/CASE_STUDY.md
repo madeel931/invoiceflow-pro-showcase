@@ -29,22 +29,22 @@ The system follows a **feature-oriented Clean Architecture** pattern combined wi
 
 ```mermaid
 graph TD
-    subgraph Presentation Layer
-        UI[Flutter Widgets & Screens] -->|Events / User Intent| Cubit[Feature Cubits]
+    subgraph Presentation_Layer ["Presentation Layer"]
+        UI["Flutter Widgets & Screens"] -->|Events / User Intent| Cubit["Feature Cubits"]
         Cubit -->|Immutable State Streams| UI
     end
 
-    subgraph Domain Layer
-        Cubit -->|Invokes| UC[Use Cases]
-        UC -->|Coordinates| REPO_INTERFACE[Repository Interfaces]
-        UC -->|Operates on| ENTITIES[Domain Entities & Value Objects]
+    subgraph Domain_Layer ["Domain Layer"]
+        Cubit -->|Invokes| UC["Use Cases"]
+        UC -->|Coordinates| REPO_INTERFACE["Repository Interfaces"]
+        UC -->|Operates on| ENTITIES["Domain Entities & Value Objects"]
     end
 
-    subgraph Data Layer
-        REPO_INTERFACE -.->|Implemented by| REPO_IMPL[Repository Implementations]
-        REPO_IMPL -->|Queries & Mutates| DATASOURCE_LOCAL[Isar Local Datasource]
-        REPO_IMPL -->|Manages| DATASOURCE_BACKUP[Backup & Cloud Datasource]
-        REPO_IMPL -->|Maps| MAPPERS[Data Models & Mappers]
+    subgraph Data_Layer ["Data Layer"]
+        REPO_INTERFACE -.->|Implemented by| REPO_IMPL["Repository Implementations"]
+        REPO_IMPL -->|Queries & Mutates| DATASOURCE_LOCAL["Isar Local Datasource"]
+        REPO_IMPL -->|Manages| DATASOURCE_BACKUP["Backup & Cloud Datasource"]
+        REPO_IMPL -->|Maps| MAPPERS["Data Models & Mappers"]
     end
 ```
 

@@ -29,17 +29,17 @@ The test suite is structured into distinct tiers corresponding to the applicatio
 
 ```mermaid
 graph TD
-    subgraph Test Suite Layers
-        UT[Domain Unit Tests - Pure Dart]
-        CT[Presentation Cubit Tests - bloc_test]
-        WT[Widget & Layout Tests - flutter_test]
-        RT[Integration & Regression Tests]
+    subgraph Test_Suite ["Test Suite Layers"]
+        UT["Domain Unit Tests - Pure Dart"]
+        CT["Presentation Cubit Tests - bloc_test"]
+        WT["Widget & Layout Tests - flutter_test"]
+        RT["Integration & Regression Tests"]
     end
 
-    UT -->|Validates| MATH[Financial Invariants, Taxes, Discounts]
-    CT -->|Validates| STATES[State Flow, Error Handling, UI Actions]
-    WT -->|Validates| UI_TEST[LTR/RTL Mirroring, Modals, Forms]
-    RT -->|Validates| PERSIST[Isar Serialization, Backup Hashing, Alarms]
+    UT -->|Validates| MATH["Financial Invariants, Taxes, Discounts"]
+    CT -->|Validates| STATES["State Flow, Error Handling, UI Actions"]
+    WT -->|Validates| UI_TEST["LTR/RTL Mirroring, Modals, Forms"]
+    RT -->|Validates| PERSIST["Isar Serialization, Backup Hashing, Alarms"]
 ```
 
 ### 1. Domain Unit Tests

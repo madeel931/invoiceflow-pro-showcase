@@ -14,32 +14,32 @@ The architecture enforces a strict **unidirectional dependency rule**: outer lay
 
 ```mermaid
 graph TD
-    subgraph Presentation Layer
-        W[Widgets / Pages]
-        C[Cubits / BLoCs]
-        S[UI States]
+    subgraph Presentation_Layer ["Presentation Layer"]
+        W["Widgets / Pages"]
+        C["Cubits / BLoCs"]
+        S["UI States"]
     end
 
-    subgraph Domain Layer (Pure Dart)
-        UC[Use Cases]
-        E[Entities & Value Objects]
-        RI[Repository Interfaces]
-        Fail[Failures & Exceptions]
+    subgraph Domain_Layer ["Domain Layer (Pure Dart)"]
+        UC["Use Cases"]
+        E["Entities & Value Objects"]
+        RI["Repository Interfaces"]
+        Fail["Failures & Exceptions"]
     end
 
-    subgraph Data Layer
-        RM[Repository Implementations]
-        DS_L[Isar Local Datasource]
-        DS_C[Google Drive Datasource]
-        M[Data Models & Mappers]
+    subgraph Data_Layer ["Data Layer"]
+        RM["Repository Implementations"]
+        DS_L["Isar Local Datasource"]
+        DS_C["Google Drive Datasource"]
+        M["Data Models & Mappers"]
     end
 
-    subgraph Core & Infrastructure
-        DI[Dependency Injection - GetIt]
-        ROUTER[Navigation - GoRouter]
-        PDF[PDF Generation Service]
-        NOTIF[Notification Service]
-        PREFS[App Preferences]
+    subgraph Core_Layer ["Core & Infrastructure"]
+        DI["Dependency Injection - GetIt"]
+        ROUTER["Navigation - GoRouter"]
+        PDF["PDF Generation Service"]
+        NOTIF["Notification Service"]
+        PREFS["App Preferences"]
     end
 
     W -->|Dispatches Events| C
@@ -134,11 +134,11 @@ Dependency resolution is handled centrally via **GetIt**:
 
 ```mermaid
 graph LR
-    DI[injection_container.dart] -->|Registers Singletons| DB[Isar Database Instance]
-    DI -->|Registers Singletons| DS[DataSources]
-    DI -->|Registers Singletons| REPO[Repositories]
-    DI -->|Registers Factories| UC[Use Cases]
-    DI -->|Registers Factories| CUBIT[Cubits]
+    DI["injection_container.dart"] -->|Registers Singletons| DB["Isar Database Instance"]
+    DI -->|Registers Singletons| DS["DataSources"]
+    DI -->|Registers Singletons| REPO["Repositories"]
+    DI -->|Registers Factories| UC["Use Cases"]
+    DI -->|Registers Factories| CUBIT["Cubits"]
 ```
 
 * **Data Sources & Repositories:** Registered as lazy singletons to maintain consistent connection state and shared cache instances.

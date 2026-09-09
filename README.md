@@ -127,22 +127,22 @@ The application implements a **feature-oriented Clean Architecture** enforcing u
 
 ```mermaid
 graph TD
-    subgraph Presentation Layer
-        UI[Flutter Widgets / Screens] -->|User Actions| Cubit[Feature Cubits]
+    subgraph Presentation_Layer ["Presentation Layer"]
+        UI["Flutter Widgets / Screens"] -->|User Actions| Cubit["Feature Cubits"]
         Cubit -->|Immutable States| UI
     end
 
-    subgraph Domain Layer - Pure Dart
-        Cubit -->|Executes| UC[Use Cases]
-        UC -->|Coordinates| REPO_INTERFACE[Repository Interfaces]
-        UC -->|Operates on| ENTITIES[Domain Entities]
+    subgraph Domain_Layer ["Domain Layer - Pure Dart"]
+        Cubit -->|Executes| UC["Use Cases"]
+        UC -->|Coordinates| REPO_INTERFACE["Repository Interfaces"]
+        UC -->|Operates on| ENTITIES["Domain Entities"]
     end
 
-    subgraph Data Layer
-        REPO_INTERFACE -.->|Implemented by| REPO_IMPL[Repository Implementations]
-        REPO_IMPL -->|CRUD / Queries| ISAR[Isar Local DB]
-        REPO_IMPL -->|OAuth AppData Sync| DRIVE[Google Drive API]
-        REPO_IMPL -->|Serializes / Deserializes| MAPPERS[Data Models & Mappers]
+    subgraph Data_Layer ["Data Layer"]
+        REPO_INTERFACE -.->|Implemented by| REPO_IMPL["Repository Implementations"]
+        REPO_IMPL -->|CRUD / Queries| ISAR["Isar Local DB"]
+        REPO_IMPL -->|OAuth AppData Sync| DRIVE["Google Drive API"]
+        REPO_IMPL -->|Serializes / Deserializes| MAPPERS["Data Models & Mappers"]
     end
 ```
 
