@@ -19,6 +19,31 @@
 
 ---
 
+## 📲 Try InvoiceFlow Pro
+
+<p align="center">
+
+<a href="https://github.com/madeel931/invoiceflow-pro-showcase/releases/download/demo-v1.0.0/InvoiceFlow-Pro-Demo-v1.0.0.apk">
+  <img src="https://img.shields.io/badge/Download%20Android%20Demo-APK-0F172A?style=for-the-badge&logo=android&logoColor=white" alt="Download Android Demo APK">
+</a>
+
+</p>
+
+<p align="center">
+  <strong>Try the real app before purchasing the source code.</strong><br>
+  Offline-first invoicing • PDF invoices • Arabic & Urdu RTL • Backup • Reports
+</p>
+
+<p align="center">
+  <a href="https://github.com/madeel931/invoiceflow-pro-showcase/releases/tag/demo-v1.0.0">
+    View Demo Release →
+  </a>
+</p>
+
+> **Demo:** The Android demo uses the Free plan with a limit of **25 lifetime invoices**.
+
+---
+
 InvoiceFlow Pro is a commercial invoicing application designed for independent service businesses and contractors. This public repository serves as a **technical showcase and engineering case study**; the complete commercial source code is intentionally not included.
 
 > **Technical Objective:** Designed to demonstrate production-oriented Flutter architecture, offline data management, financial workflows, document generation, and localization.
