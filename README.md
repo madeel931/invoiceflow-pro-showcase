@@ -35,7 +35,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/madeel931/invoiceflow-pro-showcase/releases/tag/demo-v1.0.0">
+  <a href="https://github.com/madeel931/invoiceflow-pro-showcase/releases/tag/demo-v1.0.1">
     View Demo Release →
   </a>
 </p>
@@ -130,7 +130,7 @@ InvoiceFlow Pro is a commercial invoicing application designed for independent s
     <td align="center" width="25%">
       <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/13_backup_local_storage.png" alt="Local Storage Backup" width="100%" />
       <br /><strong>Local Backup</strong>
-      <br /><sub>Encrypted snapshot export and import</sub>
+      <br /><sub>Database snapshot export and restore with SHA-256 integrity verification</sub>
     </td>
     <td align="center" width="25%">
       <img src="https://cdn.jsdelivr.net/gh/madeel931/invoiceflow-pro-showcase@main/screenshots/14_backup_cloud_status.png" alt="Backup Status" width="100%" />
@@ -235,7 +235,7 @@ The codebase includes an extensive suite of automated tests verifying core busin
 
 * **Suite Composition:** 93 automated test files are included in the project, covering domain calculations, repository mappings, state transition sequences, and layout mirroring.
 * **Test Scope:** Unit, widget, and regression test suites validating domain calculations, Cubit state emissions, and bidirectional layout mirroring.
-* **Static Analysis:** Clean pass under `flutter analyze` with 0 warnings, 0 errors, and strict `flutter_lints` adherence.
+* **Static Analysis:** Static analysis configuration is included with `flutter_lints`. Run `flutter analyze` in a configured Flutter environment to verify the current codebase.
 
 For detailed testing architecture and execution instructions, see [docs/TESTING.md](docs/TESTING.md).
 
