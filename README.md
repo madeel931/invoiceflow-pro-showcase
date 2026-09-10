@@ -23,7 +23,7 @@
 
 <p align="center">
 
-<a href="https://github.com/madeel931/invoiceflow-pro-showcase/releases/download/demo-v1.0.0/InvoiceFlow-Pro-Demo-v1.0.1-arm64.apk">
+<a href="https://github.com/madeel931/invoiceflow-pro-showcase/releases/download/demo-v1.0.1/InvoiceFlow-Pro-Demo-v1.0.1-arm64.apk">
   <img src="https://img.shields.io/badge/Download%20Android%20Demo-APK-0F172A?style=for-the-badge&logo=android&logoColor=white" alt="Download Android Demo APK">
 </a>
 
